@@ -60,26 +60,7 @@ public class Algocom_P2 {
     public static void checkHarvest (int numVillages, int costToFeed, int[] harvests) {   
 
     //put your code here and the print statements for the output.
-        
-    }
-    
-    //item number 4
-    public static void printCombination (int N, int K) {   
-
-    //put your code here and the print statements for the output.
-        
-    }
-    
-    public static void main(String[] args) {
-        // TODO code application logic here
-        
-        analyze("1 2 3 4 1234 hello world my name is bleh bleh bleh");
-    }
-    
-}    
-    
-    public static void checkHarvest (int numVillages, int costToFeed, int[] harvests) {
-	long start = System.currentTimeMillis();
+     long start = System.currentTimeMillis();
 		
 	long total = numVillages * costToFeed;
 	long food = 0;
@@ -100,6 +81,14 @@ public class Algocom_P2 {
 	double sec = end- start;
 		
 	System.out.println(start + " - " + end + " = " + sec);
+      
+    }
+    
+    //item number 4
+    public static void printCombination (int N, int K) {   
+
+    //put your code here and the print statements for the output.
+        
     }
     
     public static void main(String[] args) {
@@ -116,7 +105,7 @@ public class Algocom_P2 {
 //        for(int i = 0; i < 10; i++) {
 //            har[i] = 10000000;
 //	}
-		
+        analyze("Hello! 1 2 3 4 5 6, meep morp sneep swnoop.");
 	checkHarvest(5, 500, har);
     }
 }

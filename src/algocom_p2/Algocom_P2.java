@@ -36,18 +36,35 @@ public class Algocom_P2 {
             charList.add(temp);
             found = 1;
         }
-        
-       for(int l=0; l < count.size(); l++){  
-                 for(int m=1; m < count.size()-1; m++){  
-                          if(count.get(m) > count.get(m+1)){  
-                                 Collections.swap(count,m,m+1);
-                         }  
-                          
-                 }  
-         }
-       
-       for (int x =0;x<count.size();x++)
-           System.out.println(count.get(x));
+          for (int x = 0; x < count.size(); x++) 
+          {
+              for (int y = 0; y < count.size()-1; y++) 
+            {
+                if (count.get(y) < count.get(y+1)) 
+                { 
+                    int temp2 = count.get(y); 
+                    count.set(y,count.get(y+1)); 
+                    count.set(y+1,temp2); 
+                    
+                    char temp3 = charList.get(y);
+                    charList.set(y,charList.get(y+1));
+                    charList.set(y+1,temp3);
+                }
+                else if (count.get(y)==count.get(y+1))
+                {
+                    if(charList.get(y) > charList.get(y+1))
+                    {
+                        char temp4 = charList.get(y);
+                        charList.set(y,charList.get(y+1));
+                        charList.set(y+1,temp4);
+                
+                    }
+                }
+            }
+          }
+      
+       for (int z =0;z<count.size();z++)
+           System.out.println(charList.get(z) + " " + count.get(z));
     }
     
     //item number 2
@@ -99,7 +116,7 @@ public class Algocom_P2 {
     
     public static void main(String[] args) {
 //1
-         analyze("Count me 1 2 3 4 5! Wow! I love ALGOCOM!");
+         analyze("zyxwuvabcdefgkjmon");
 	
 
 

@@ -5,8 +5,8 @@ public class Algocom_P2 {
     public static void checkHarvest (int numVillages, int costToFeed, int[] harvests) {
 	long start = System.currentTimeMillis();
 		
-	int total = numVillages * costToFeed;
-	int food = 0;
+	long total = numVillages * costToFeed;
+	long food = 0;
 		   
 	for(int i = 0; i < harvests.length; i++) {
             food = food  + harvests[i];

@@ -81,6 +81,8 @@ public class Algocom_P2 {
     }
     
     public static void main(String[] args) {
+        //#1 of the assignments
+        analyze("Hello! 1 2 3 4 5 6, meep morp sneep swnoop.");
         
         //#3 of the assignment
         int[] har = new int[6];
@@ -91,10 +93,8 @@ public class Algocom_P2 {
         har[3] = 0;
         har[4] = 500;
         har[5] = 0;
-//        for(int i = 0; i < 10; i++) {
-//            har[i] = 10000000;
-//	}
-        analyze("Hello! 1 2 3 4 5 6, meep morp sneep swnoop.");
+
+        
 	checkHarvest(5, 500, har);
     }
 }

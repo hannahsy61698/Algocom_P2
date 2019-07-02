@@ -12,7 +12,6 @@ public class Algocom_P2 {
             food = food  + harvests[i];
 	}
 		
-	System.out.println(total + " " + food);
 	if(food == total)
             System.out.println("JUST ENOUGH FOR EVERYONE");
 	else if(food > total)
@@ -30,11 +29,18 @@ public class Algocom_P2 {
     public static void main(String[] args) {
         
         //#3 of the assignment
-        int[] har = new int[10000000];
-        for(int i = 0; i < 10000000; i++) {
-            har[i] = 1000;
-	}
+        int[] har = new int[6];
+        
+        har[0] = 1500;
+        har[1] = 0;
+        har[2] = 500;
+        har[3] = 0;
+        har[4] = 500;
+        har[5] = 0;
+//        for(int i = 0; i < 10; i++) {
+//            har[i] = 10000000;
+//	}
 		
-	checkHarvest(100, 500, har);
+	checkHarvest(5, 500, har);
     }
 }

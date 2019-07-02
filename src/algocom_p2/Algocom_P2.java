@@ -1,5 +1,7 @@
 package algocom_p2;
 
+import java.util.ArrayList;
+
 public class Algocom_P2 {
 
     /**
@@ -14,7 +16,6 @@ public class Algocom_P2 {
         input = input.toUpperCase();
         
         //removes all except alphabets
-        input = input.replaceAll("[^a-zA-Z-]", "");
         
         int[] ctr = new int[255];
 
@@ -45,8 +46,35 @@ public class Algocom_P2 {
         */
         
         input = input.toUpperCase();
+        input = input.replaceAll("[^a-zA-Z-]", "");
+        ArrayList<Integer> count = new ArrayList<Integer>();
+   
+        int found=0;
+        char temp;
+     
+        for (int j=0;j<input.length();j++)
+        {
+            temp=input.charAt(j);
+            
+            for(int k = j+1;k<input.length()-1;k++)
+            {     
+                if( temp == input.charAt(k))
+                {
+                    found++;
+                    input = input.substring(0,k) + input.substring(k+1,input.length());
+                    k--;
+                }
+            }   
+            
+            if (found != 0)
+                found++;
+                count.add(found);
+                found = 0;
+        }
         
-        
+        for(int l = 0;l<count.size();l++)
+            System.out.println(count.get(l));
+        System.out.println(input);
     }
     
     //item number 2
@@ -105,7 +133,7 @@ public class Algocom_P2 {
 //        for(int i = 0; i < 10; i++) {
 //            har[i] = 10000000;
 //	}
-        analyze("Hello! 1 2 3 4 5 6, meep morp sneep swnoop.");
+        analyze("Count me 1 2 3 4 5! Wow! I love ALGOCOM!");
 	checkHarvest(5, 500, har);
     }
 }

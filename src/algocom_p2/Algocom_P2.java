@@ -58,11 +58,7 @@ public class Algocom_P2 {
     
     //item number 3
     public static void checkHarvest (int numVillages, int costToFeed, int[] harvests) {   
-
-    //put your code here and the print statements for the output.
-     long start = System.currentTimeMillis();
-		
-	long total = numVillages * costToFeed;
+        long total = numVillages * costToFeed;
 	long food = 0;
 		   
 	for(int i = 0; i < harvests.length; i++) {
@@ -75,13 +71,6 @@ public class Algocom_P2 {
                 System.out.println("PARTY!");
             else
 		System.out.println("NOT ENOUGH FOOD");
-		   
-	long end = System.currentTimeMillis();
-		
-	double sec = end- start;
-		
-	System.out.println(start + " - " + end + " = " + sec);
-      
     }
     
     //item number 4

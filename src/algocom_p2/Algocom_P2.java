@@ -1,6 +1,7 @@
 package algocom_p2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Algocom_P2 {
 
@@ -8,80 +9,68 @@ public class Algocom_P2 {
      * @param args the command line arguments
      */
  //item number 1
-    public static void analyze (String input) {   
-/* pao's code
-        //put your code here and the print statements for the output.
-        
-        //make everything uppercase
-        input = input.toUpperCase();
-        
-        //removes all except alphabets
-        
-        int[] ctr = new int[255];
-
-        int strLength = input.length();
-
-        for(int i = 0; i < strLength; i++){
-            ctr[input.charAt(i)]++;
-        }
-        
-        char[] ch = new char[input.length()];
-        
-        for(int i = 0; i < strLength; i++){
-            ch[i] = input.charAt(i);
-            
-            int found = 0;
-            
-            for(int j = 0; j <= i; j++){
-                if(input.charAt(i) == ch[j]){
-                    found++;
-                }
-            }
-            
-            if(found == 1){
-                System.out.println("" + input.charAt(i) + " " + ctr[input.charAt(i)]);
-            }
-        }
-        
-        */
-        
+    public static void analyze (String input) {           
         input = input.toUpperCase();
         input = input.replaceAll("[^a-zA-Z-]", "");
         ArrayList<Integer> count = new ArrayList<Integer>();
+        ArrayList<Character> charList = new ArrayList<Character>();
    
-        int found=0;
+        int found=1;
         char temp;
      
         for (int j=0;j<input.length();j++)
         {
             temp=input.charAt(j);
             
-            for(int k = j+1;k<input.length()-1;k++)
-            {     
-                if( temp == input.charAt(k))
+            for(int k = j+1;k<input.length();k++)
+            {   if( temp == input.charAt(k))
                 {
                     found++;
                     input = input.substring(0,k) + input.substring(k+1,input.length());
                     k--;
+                    
                 }
             }   
-            
-            if (found != 0)
-                found++;
-                count.add(found);
-                found = 0;
+           
+            count.add(found);
+            charList.add(temp);
+            found = 1;
         }
         
-        for(int l = 0;l<count.size();l++)
-            System.out.println(count.get(l));
-        System.out.println(input);
+       for(int l=0; l < count.size(); l++){  
+                 for(int m=1; m < count.size()-1; m++){  
+                          if(count.get(m) > count.get(m+1)){  
+                                 Collections.swap(count,m,m+1);
+                         }  
+                          
+                 }  
+         }
+       
+       for (int x =0;x<count.size();x++)
+           System.out.println(count.get(x));
     }
     
     //item number 2
     public static void countSwaps (int length, int[] carriageNumbers) {   
 
     //put your code here and the print statements for the output.
-        
+        long optimalCount = 0;
+		
+		for(int x = 1; x < length; x++) {
+			
+			for(int y = 0; y < length - x; y++) {
+				
+				//perform swap
+				if(carriageNumbers[y] > carriageNumbers[y+1]) {
+					carriageNumbers[y] = carriageNumbers[y] + carriageNumbers[y+1]; 
+					carriageNumbers[y+1] = carriageNumbers[y] - carriageNumbers[y+1];
+					carriageNumbers[y] = carriageNumbers[y] - carriageNumbers[y+1];
+					optimalCount++;
+				}
+			}
+		}
+		
+		System.out.println("The most optimal train swaps: " + optimalCount);
     }
     
     //item number 3
@@ -109,10 +98,13 @@ public class Algocom_P2 {
     }
     
     public static void main(String[] args) {
-        //#1 of the assignments
-        analyze("Hello! 1 2 3 4 5 6, meep morp sneep swnoop.");
+//1
+         analyze("Count me 1 2 3 4 5! Wow! I love ALGOCOM!");
+	
+
+
+//#3 of the assignment
         
-        //#3 of the assignment
         int[] har = new int[6];
         
         har[0] = 1500;
@@ -124,7 +116,6 @@ public class Algocom_P2 {
 //        for(int i = 0; i < 10; i++) {
 //            har[i] = 10000000;
 //	}
-        analyze("Count me 1 2 3 4 5! Wow! I love ALGOCOM!");
-	checkHarvest(5, 500, har);
+       checkHarvest(5, 500, har);
     }
 }

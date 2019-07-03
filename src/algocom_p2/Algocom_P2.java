@@ -108,31 +108,42 @@ public class Algocom_P2 {
     }
     
     //item number 4
-    public static void printCombination (int N, int K) {   
-
-    //put your code here and the print statements for the output.
+    public static void printCombination (int N, int K) { 
+        int[] allnum = new int[N];
+        int[] temp = new int[N];
         
+        for(int i = 0; i < N; i++){
+            allnum[i] = i + 1;
+        }
+    
+        Combination(allnum, temp, 0, N, 0, K);
+        
+    }
+    
+    public static void Combination(int[] allnum, int[] temp, int s, int e, int index, int K){
+        if(index == K){
+            for(int i = 0; i < K; i++){
+                System.out.print(temp[i] + " ");
+            }
+            System.out.println();
+        }else{
+            for(int i = s; i < e; i++){
+                temp[index] = allnum[i];
+                Combination(allnum, temp, i+1, e, index + 1, K);
+            }
+        }
     }
     
     public static void main(String[] args) {
 //1
-         analyze("zyxwuvabcdefgkjmon");
+//         analyze("zyxwuvabcdefgkjmon");
 	
 
-
 //#3 of the assignment
+//        int [] har = {1500, 0, 500, 0, 500, 0};
+//        checkHarvest(5, 500, har);
         
-        int[] har = new int[6];
-        
-        har[0] = 1500;
-        har[1] = 0;
-        har[2] = 500;
-        har[3] = 0;
-        har[4] = 500;
-        har[5] = 0;
-//        for(int i = 0; i < 10; i++) {
-//            har[i] = 10000000;
-//	}
-       checkHarvest(5, 500, har);
+//#4 of the assignment
+        printCombination(4,3);
     }
 }

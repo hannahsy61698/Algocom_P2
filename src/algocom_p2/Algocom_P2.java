@@ -92,32 +92,35 @@ public class Algocom_P2 {
     
     //item number 3
     public static void checkHarvest (int numVillages, int costToFeed, int[] harvests) {   
-        long total = numVillages * costToFeed;
-	long food = 0;
-		   
-	for(int i = 0; i < harvests.length; i++) {
-            food = food  + harvests[i];
-	}
-		
-	if(food == total)
-            System.out.println("JUST ENOUGH FOR EVERYONE");
-	else if(food > total)
-                System.out.println("PARTY!");
-            else
-		System.out.println("NOT ENOUGH FOOD");
+        if((numVillages >= 1 && numVillages <= 1000000) && (costToFeed >= 1 && costToFeed <= 5000)){
+            long total = numVillages * costToFeed;
+            long food = 0;
+
+            for(int i = 0; i < harvests.length; i++) {
+                food = food  + harvests[i];
+            }
+
+            if(food == total)
+                System.out.println("JUST ENOUGH FOR EVERYONE");
+            else if(food > total)
+                    System.out.println("PARTY!");
+                else
+                    System.out.println("NOT ENOUGH FOOD");
+        }
     }
     
     //item number 4
     public static void printCombination (int N, int K) { 
-        int[] allnum = new int[N];
-        int[] temp = new int[N];
-        
-        for(int i = 0; i < N; i++){
-            allnum[i] = i + 1;
+        if((N >= 1 && N <= 20) && (K >= 1 && N >= K)){
+            int[] allnum = new int[N];
+            int[] temp = new int[N];
+
+            for(int i = 0; i < N; i++){
+                allnum[i] = i + 1;
+            }
+
+            Combination(allnum, temp, 0, N, 0, K);
         }
-    
-        Combination(allnum, temp, 0, N, 0, K);
-        
     }
     
     public static void Combination(int[] allnum, int[] temp, int s, int e, int index, int K){

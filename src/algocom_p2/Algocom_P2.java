@@ -1,14 +1,13 @@
 package algocom_p2;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Algocom_P2 {
 
     /**
      * @param args the command line arguments
      */
- //item number 1
+ 
     public static void analyze (String input) {           
         input = input.toUpperCase();
         input = input.replaceAll("[^a-zA-Z-]", "");
@@ -67,7 +66,6 @@ public class Algocom_P2 {
            System.out.println(charList.get(z) + " " + count.get(z));
     }
     
-    //item number 2
     public static void countSwaps (int length, int[] carriageNumbers) {   
 
     //put your code here and the print statements for the output.
@@ -90,7 +88,6 @@ public class Algocom_P2 {
 		System.out.println("The most optimal train swaps: " + optimalCount);
     }
     
-    //item number 3
     public static void checkHarvest (int numVillages, int costToFeed, int[] harvests) {   
         if((numVillages >= 1 && numVillages <= 1000000) && (costToFeed >= 1 && costToFeed <= 5000)){
             long total = numVillages * costToFeed;
@@ -108,18 +105,17 @@ public class Algocom_P2 {
                     System.out.println("NOT ENOUGH FOOD");
         }
     }
-    
-    //item number 4
+   
     public static void printCombination (int N, int K) { 
         if((N >= 1 && N <= 20) && (K >= 1 && N >= K)){
-            int[] allnum = new int[N];
+            int[] all = new int[N];
             int[] temp = new int[N];
 
             for(int i = 0; i < N; i++){
-                allnum[i] = i + 1;
+                all[i] = i + 1;
             }
 
-            Combination(allnum, temp, 0, N, 0, K);
+            Combination(all, temp, 0, N, 0, K);
         }
     }
     
@@ -138,15 +134,15 @@ public class Algocom_P2 {
     }
     
     public static void main(String[] args) {
-//1
-//         analyze("zyxwuvabcdefgkjmon");
-	
-
-//#3 of the assignment
-//        int [] har = {1500, 0, 500, 0, 500, 0};
-//        checkHarvest(5, 500, har);
-        
-//#4 of the assignment
-        printCombination(4,3);
+          int [] val = {1500, 0, 500, 0, 500, 0};
+          int[] swap = {1,2,4,3};
+        //1
+          analyze("abcdefghijklmnop123456789");
+        //2
+        //countSwaps(4,swap);
+        //3    
+        //checkHarvest(5, 500, val);
+        //4
+        //printCombination(4,3);
     }
 }
